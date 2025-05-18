@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# vim: syn=bash ft=bash
 
 set -e
 
@@ -73,5 +74,3 @@ if $LOG; then
 fi
 
 eval uv run --with "$PKGS" "$SCRIPT_DIR/server.py" $SERVER_ARGS
-
-# vim: set ft=bash:
