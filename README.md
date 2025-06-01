@@ -74,7 +74,14 @@ vim.keymap.set("v", "<leader>xp", "<CMD>RunInPyrepl<CR>", {
 })
 ```
 
-## Options
+## API Functions
+
+The plugin provides the following Lua functions that can be called programmatically:
+
+- `require('pyrepl').execute_line(line)` — Execute a single line of Python code.
+- `require('pyrepl').execute_lines(lines)` — Execute an array of Python code lines.
+
+## Commands
 
 - `:RunInPyrepl` — Send selected code to the REPL.
 - `:ResetPyrepl` — Reset the REPL scope.

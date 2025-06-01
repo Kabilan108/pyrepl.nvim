@@ -91,6 +91,20 @@ function M.reset_repl()
   end
 end
 
+---@param line string
+function M.execute_line(line)
+  if line and line:match('%S') then -- check if line has non-whitespace content
+    M.send_to_repl({ line })
+  end
+end
+
+---@param lines string[]
+function M.execute_lines(lines)
+  if lines and #lines > 0 then
+    M.send_to_repl(lines)
+  end
+end
+
 ---@return string[]
 function M.get_visual_selection()
   local _, srow, scol = unpack(vim.fn.getpos 'v')
@@ -123,9 +137,7 @@ end
 
 function M.run_selected_lines()
   local code = M.get_visual_selection()
-  if #code > 0 then
-    M.send_to_repl(code)
-  end
+  M.execute_lines(code)
 end
 
 return M
